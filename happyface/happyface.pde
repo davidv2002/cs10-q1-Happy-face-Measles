@@ -12,6 +12,11 @@ int rightEyeX, rightEyeY, rightEyeDiameter;
 int noseX1, noseX2, noseX3, noseY1, noseY2, noseY3;
 // mouth
 int mouthX1, mouthY1, mouthX2, mouthY2, mouthThick;
+// color
+color red = #FA5151;
+color measlesColor = red;
+// measles
+float measlesX, measlesY, measlesDiameter;
 void setup() {
   size(1024, 768); // fullScreen(), displayWidth & displayHeight
   // fullScreen();
@@ -35,12 +40,13 @@ void draw() {
   line(mouthX1, mouthY1, mouthX2, mouthY2);
   // reset strokeWeight after mouth
   reset = 1;
-  //mesals
  strokeWeight(reset);
- int randomX = round(random(0, height)+offset);
- int randomY = round(random(0, height));
- fill(#c43636);
- ellipse(randomX, randomY, 5, 5);
+   // measles
+ measlesX = random(height)+offset;
+ measlesY = random(height);
+ measlesDiameter = random(height * 1/80, height * 1/40 );
+ fill(measlesColor);
+ ellipse(measlesX, measlesY, measlesDiameter, measlesDiameter);
  noFill();
 }// End draw()
 

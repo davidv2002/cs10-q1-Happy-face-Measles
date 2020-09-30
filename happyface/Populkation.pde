@@ -28,7 +28,7 @@ void population () {
   // right point
   mouthX2 = rightEyeX;
   mouthY2 = mouthY1;
-  //reset
+  // reset
   reset = 1;
   // offset
   offset = (width - height)/2;
