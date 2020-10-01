@@ -27,6 +27,7 @@ void setup() {
   population();
   // draw the face
   //faceDraw();
+  background(reset);
   // face
   ellipse(faceX, faceY, faceDiameter, faceDiameter);
 }// end setup
@@ -34,9 +35,11 @@ void setup() {
 void draw() {
   // drawing the face
   // measles
-  measlesX = random(width);
+  // random part
+  measlesX = random(height)+offset;
   measlesY = random(height);
   measlesDiameter = random(height * 1/80, height * 1/40 );
+  //draw part
   fill(measlesColor);
   ellipse(measlesX, measlesY, measlesDiameter, measlesDiameter);
   fill(colorReset);
