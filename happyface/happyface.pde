@@ -15,6 +15,8 @@ int mouthX1, mouthY1, mouthX2, mouthY2, mouthThick;
 // color
 color red = #FA5151;
 color measlesColor = red;
+color white = 255;
+color colorReset = white;
 // measles
 float measlesX, measlesY, measlesDiameter;
 void setup() {
@@ -23,12 +25,21 @@ void setup() {
   println("Screen Width is", displayWidth, "Screen Height is", displayHeight);
   // face variables
   population();
+  // draw the face
+  //faceDraw();
+  // face
+  ellipse(faceX, faceY, faceDiameter, faceDiameter);
 }// end setup
 
 void draw() {
-    // drawing the face
-  // face
-  ellipse(faceX, faceY, faceDiameter, faceDiameter);
+  // drawing the face
+  // measles
+  measlesX = random(width);
+  measlesY = random(height);
+  measlesDiameter = random(height * 1/80, height * 1/40 );
+  fill(measlesColor);
+  ellipse(measlesX, measlesY, measlesDiameter, measlesDiameter);
+  fill(colorReset);
   // left eye
   ellipse(leftEyeX, leftEyeY, leftEyeDiameter, leftEyeDiameter);
   // right eye
@@ -39,20 +50,14 @@ void draw() {
   strokeWeight(mouthThick);
   line(mouthX1, mouthY1, mouthX2, mouthY2);
   // reset strokeWeight after mouth
-  reset = 1;
- strokeWeight(reset);
-   // measles
- measlesX = random(height)+offset;
- measlesY = random(height);
- measlesDiameter = random(height * 1/80, height * 1/40 );
- fill(measlesColor);
- ellipse(measlesX, measlesY, measlesDiameter, measlesDiameter);
- noFill();
+  strokeWeight(reset);
 }// End draw()
 
 void keyPressed () {
   // quit keyboard button
-  if( key == 'q' || key == 'Q') {exit();}// end button
+  if ( key == 'q' || key == 'Q') {
+    exit();
+  }// end button
 }// End keyPressed()
 
 void mousePressed() {
