@@ -54,6 +54,9 @@ void draw() {
   line(mouthX1, mouthY1, mouthX2, mouthY2);
   // reset strokeWeight after mouth
   strokeWeight(reset);
+  //remove unwanted
+  triangle(offset, 0, leftEyeX, 0, offset, leftEyeY);
+  triangle(offset, height, leftEyeX, height, offset, height/2 + leftEyeY);
 }// End draw()
 
 void keyPressed () {
