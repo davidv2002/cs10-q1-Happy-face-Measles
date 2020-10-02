@@ -54,8 +54,8 @@ class Mask {
     endShape();
   };
 }
-Mask maskRight = new Mask(width, (width/2)+(height/2)-(height/2*0.33));
 Mask maskLeft = new Mask(0, (width/2)-(height/2)+(height/2*0.33));
+Mask maskRight = new Mask(width, (width/2)+(height/2)-(height/2*0.33));
 void draw() {
   // drawing the face
   // measles
@@ -100,7 +100,7 @@ void draw() {
   text(x, buttonX, buttonY, buttonWidth, buttonHeight);
   // reset color
   fill(colorReset);
-// end draw()
+  // end draw()
 }
 
 void keyPressed () {
@@ -114,5 +114,5 @@ void mousePressed() {
   if (mouseY<buttonHeight && mouseY>buttonY && mouseX<width && mouseX>buttonX) {
     exit();
   }
-// end mousePressed()
+  // end mousePressed()
 }
