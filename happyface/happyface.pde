@@ -18,7 +18,8 @@ int buttonX, buttonY, buttonWidth, buttonHeight;
 color buttonColour, red, silver, measlesColor, white, colorReset, x_red;
 // measles
 float measlesX, measlesY, measlesDiameter;
-String title;
+// text
+String x;
 PFont titleFont;
 void setup() {
   size(1024, 768);
@@ -33,7 +34,7 @@ void setup() {
   // face
   ellipse(faceX, faceY, faceDiameter, faceDiameter);
 }// end setup
-//class for the edge mask
+// class for the edge mask
 class Mask { 
   int outsideX; 
   float cPointX;
@@ -61,7 +62,7 @@ void draw() {
   measlesX = random(height)+offset;
   measlesY = random(height);
   measlesDiameter = random(height * 1/80, height * 1/40 );
-  //draw part
+  // draw part
   fill(measlesColor);
   ellipse(measlesX, measlesY, measlesDiameter, measlesDiameter);
   fill(colorReset);
@@ -76,7 +77,8 @@ void draw() {
   line(mouthX1, mouthY1, mouthX2, mouthY2);
   // reset strokeWeight after mouth
   strokeWeight(reset);
-  //remove unwanted
+  // remove unwanted
+  // if it worked
   fill(silver);
   maskRight.thing();
 
@@ -88,11 +90,11 @@ void draw() {
   }// End IF
   fill(buttonColour); //red all the time, silver with Hoverover
   rect(buttonX, buttonY, buttonWidth, buttonHeight);
-  //x on button
+  // x on button
   fill(x_red);
   textAlign (CENTER, CENTER);
   textFont(titleFont, 30);
-  text(title, buttonX, buttonY, buttonWidth, buttonHeight);
+  text(x, buttonX, buttonY, buttonWidth, buttonHeight);
   // reset color
   fill(colorReset);
 }// End draw()

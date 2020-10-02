@@ -37,14 +37,15 @@ void population () {
   buttonY = height*0/14;
   buttonWidth = width*1/16;
   buttonHeight = height*1/14;
-  //color
+  // color
   red = #ED2626;
   silver = #D8D0D0;
   measlesColor = red;
   white = 255;
   colorReset = white;
   x_red = #F0A0A0;
-  //text
-  title= "X";
+  // text
+  x= "X";
+  // font
   titleFont = createFont ("Microsoft Sans Serif", 55);
 };
