@@ -54,8 +54,8 @@ class Mask {
     endShape();
   };
 }
-Mask maskleft = new Mask(width, (width/2)+(height/2)+(height/2*0.33));
-//Mask maskRight = new Mask(0, (width/2)-(height/2)-(height/2*0.33));
+Mask maskRight = new Mask(width, (width/2)+(height/2)-(height/2*0.33));
+Mask maskLeft = new Mask(0, (width/2)-(height/2)+(height/2*0.33));
 void draw() {
   // drawing the face
   // measles
@@ -81,8 +81,8 @@ void draw() {
   // remove unwanted
   // if it worked
   fill(silver);
-  maskLeft.thing();
   //maskRight.thing();
+  maskLeft.thing();
   // button
   // button Hoverover
   if (mouseY<buttonHeight && mouseY>buttonY && mouseX<width && mouseX>buttonX) {
