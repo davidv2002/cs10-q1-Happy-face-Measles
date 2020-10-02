@@ -76,7 +76,7 @@ void draw() {
   maskLeft.thing();
   
   //button
-  if (mouseY<height*1/14 && mouseY>height*0/14 && mouseX<width && mouseX>width*15/16) { //Button Hoverover
+  if (mouseY<buttonHeight && mouseY>buttonY && mouseX<width && mouseX>buttonX) { //Button Hoverover
     buttonColour = silver; //Hoverover
     fill(colorReset);
   } else {
@@ -95,7 +95,7 @@ void keyPressed () {
 }// End keyPressed()
 
 void mousePressed() {
-  if (mouseY<height*1/14 && mouseY>height*0/14 && mouseX<width && mouseX>width*15/16) {
-    exit();
+  if (mouseY<buttonHeight && mouseY>buttonY && mouseX<width && mouseX>buttonX) {
+  exit();
   }
 }// End mousePressed()
