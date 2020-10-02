@@ -15,10 +15,13 @@ int mouthX1, mouthY1, mouthX2, mouthY2, mouthThick;
 // button
 int buttonX, buttonY, buttonWidth, buttonHeight;
 // color
-color buttonColour, red, silver, measlesColor, white,colorReset;
+color buttonColour, red, silver, measlesColor, white, colorReset, x_red;
 // measles
 float measlesX, measlesY, measlesDiameter;
+String title;
+PFont titleFont;
 void setup() {
+  size(1024, 768);
   size(1024, 768); // fullScreen(), displayWidth & displayHeight
   // fullScreen();
   println("Screen Width is", displayWidth, "Screen Height is", displayHeight);
@@ -76,16 +79,21 @@ void draw() {
   //remove unwanted
   fill(silver);
   maskRight.thing();
-  
+
   //button
   if (mouseY<buttonHeight && mouseY>buttonY && mouseX<width && mouseX>buttonX) { //Button Hoverover
     buttonColour = silver; //Hoverover
-    fill(colorReset);
   } else {
     buttonColour = red;
   }// End IF
   fill(buttonColour); //red all the time, silver with Hoverover
   rect(buttonX, buttonY, buttonWidth, buttonHeight);
+  //x on button
+  fill(x_red);
+  textAlign (CENTER, CENTER);
+  textFont(titleFont, 30);
+  text(title, buttonX, buttonY, buttonWidth, buttonHeight);
+  // reset color
   fill(colorReset);
 }// End draw()
 
@@ -98,6 +106,6 @@ void keyPressed () {
 
 void mousePressed() {
   if (mouseY<buttonHeight && mouseY>buttonY && mouseX<width && mouseX>buttonX) {
-  exit();
+    exit();
   }
 }// End mousePressed()

@@ -43,4 +43,8 @@ void population () {
   measlesColor = red;
   white = 255;
   colorReset = white;
+  x_red = #F0A0A0;
+  //text
+  title= "X";
+  titleFont = createFont ("Microsoft Sans Serif", 55);
 };
