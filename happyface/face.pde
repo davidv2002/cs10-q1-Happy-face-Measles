@@ -13,5 +13,5 @@ void faceDraw() {
   line(mouthX1, mouthY1, mouthX2, mouthY2);
   // reset strokeWeight after mouth
   reset = 1;
- strokeWeight(reset);
+  strokeWeight(reset);
 };

@@ -32,4 +32,15 @@ void population () {
   reset = 1;
   // offset
   offset = (width - height)/2;
+  // button
+  buttonX = width*15/16;
+  buttonY = height*0/14;
+  buttonWidth = width*1/16;
+  buttonHeight = height*1/14;
+  //color
+  red = #ED2626;
+  silver = #D8D0D0;
+  measlesColor = red;
+  white = 255;
+  colorReset = white;
 };

@@ -12,11 +12,10 @@ int rightEyeX, rightEyeY, rightEyeDiameter;
 int noseX1, noseX2, noseX3, noseY1, noseY2, noseY3;
 // mouth
 int mouthX1, mouthY1, mouthX2, mouthY2, mouthThick;
+// button
+int buttonX, buttonY, buttonWidth, buttonHeight;
 // color
-color red = #FA5151;
-color measlesColor = red;
-color white = 255;
-color colorReset = white;
+color buttonColour, red, silver, measlesColor, white,colorReset;
 // measles
 float measlesX, measlesY, measlesDiameter;
 void setup() {
@@ -31,6 +30,24 @@ void setup() {
   // face
   ellipse(faceX, faceY, faceDiameter, faceDiameter);
 }// end setup
+class Mask { 
+  int outsideX, cPointX;
+  Mask(int outsideX_1, int cPointX_1) {
+    outsideX = outsideX_1;
+    cPointX = cPointX_1;
+  };
+  void thing() { 
+    beginShape();
+    vertex(outsideX, 0);
+    vertex( width/2, 0);
+    bezierVertex(cPointX, 0, cPointX, height, width/2, height);
+    vertex(width/2, height);
+    vertex(outsideX, height);
+    vertex(outsideX, 0);
+    endShape();
+  };
+}
+Mask maskLeft = new Mask(width, (width/2)+(height/2)+round((height/2*0.33)));
 
 void draw() {
   // drawing the face
@@ -55,9 +72,19 @@ void draw() {
   // reset strokeWeight after mouth
   strokeWeight(reset);
   //remove unwanted
-  //triangle(offset, 0, leftEyeX, 0, offset, leftEyeY);
-  //triangle(offset, height, leftEyeX, height, offset, height/2 + leftEyeY);
-
+  fill(silver);
+  maskLeft.thing();
+  
+  //button
+  if (mouseY<height*1/14 && mouseY>height*0/14 && mouseX<width && mouseX>width*15/16) { //Button Hoverover
+    buttonColour = silver; //Hoverover
+    fill(colorReset);
+  } else {
+    buttonColour = red;
+  }// End IF
+  fill(buttonColour); //red all the time, silver with Hoverover
+  rect(buttonX, buttonY, buttonWidth, buttonHeight);
+  fill(colorReset);
 }// End draw()
 
 void keyPressed () {
@@ -68,4 +95,7 @@ void keyPressed () {
 }// End keyPressed()
 
 void mousePressed() {
+  if (mouseY<height*1/14 && mouseY>height*0/14 && mouseX<width && mouseX>width*15/16) {
+    exit();
+  }
 }// End mousePressed()
