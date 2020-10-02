@@ -1,7 +1,4 @@
 // Global Variables
-// other
-int reset;
-int offset;
 // face
 int faceX, faceY, faceDiameter;
 // left eye
@@ -21,19 +18,23 @@ float measlesX, measlesY, measlesDiameter;
 // text
 String x;
 PFont titleFont;
+// other
+int reset;
+int offset;
+//end of global Variables
+
 void setup() {
   size(1024, 768);
-  size(1024, 768); // fullScreen(), displayWidth & displayHeight
   // fullScreen();
   println("Screen Width is", displayWidth, "Screen Height is", displayHeight);
-  // face variables
+  // variables
   population();
-  // draw the face
-  //faceDraw();
+  //set background color
   background(reset);
   // face
   ellipse(faceX, faceY, faceDiameter, faceDiameter);
 }// end setup
+
 // class for the edge mask
 class Mask { 
   int outsideX; 
@@ -81,33 +82,36 @@ void draw() {
   // if it worked
   fill(silver);
   maskRight.thing();
-
-  //button
-  if (mouseY<buttonHeight && mouseY>buttonY && mouseX<width && mouseX>buttonX) { //Button Hoverover
-    buttonColour = silver; //Hoverover
+  // button
+  // button Hoverover
+  if (mouseY<buttonHeight && mouseY>buttonY && mouseX<width && mouseX>buttonX) {
+    buttonColour = silver;
   } else {
     buttonColour = red;
-  }// End IF
-  fill(buttonColour); //red all the time, silver with Hoverover
+  } 
+  // button draw
+  fill(buttonColour);
   rect(buttonX, buttonY, buttonWidth, buttonHeight);
   // x on button
   fill(x_red);
   textAlign (CENTER, CENTER);
-  textFont(titleFont, 30);
+  textFont(titleFont, width*1/35);
   text(x, buttonX, buttonY, buttonWidth, buttonHeight);
   // reset color
   fill(colorReset);
-}// End draw()
+// end draw()
+}
 
 void keyPressed () {
   // quit keyboard button
   if ( key == 'q' || key == 'Q') {
     exit();
   }// end button
-}// End keyPressed()
+}// end keyPressed()
 
 void mousePressed() {
   if (mouseY<buttonHeight && mouseY>buttonY && mouseX<width && mouseX>buttonX) {
     exit();
   }
-}// End mousePressed()
+// end mousePressed()
+}
